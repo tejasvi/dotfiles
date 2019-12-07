@@ -140,3 +140,6 @@ mkc() { mkdir -p -- "$1" && cd -P -- "$1"; }
 
 #yadm commit and push
 alias ydm='yadm add .ccls .vim .coc-project .bashrc .config .dircolors .selected_editor .profile .tmux.conf .tmuxline && yadm commit -am "Use yadm to manage dotfiles" && yadm push'
+
+#better g++
+alias plus='g++ -Wall -Wextra -Werror -pedantic'

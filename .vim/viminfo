@@ -14,18 +14,30 @@
 ~MSle0~/highlight
 
 # Last Substitute Search Pattern:
-~MSle0&\\
+~MSle0&in
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:q
-|2,0,1575742917,,"q"
-:w
-|2,0,1575742914,,"w"
 :wq
-|2,0,1575742304,,"wq"
+|2,0,1575748330,,"wq"
+:C
+|2,0,1575747490,,"C"
+:c
+|2,0,1575747471,,"c"
+:noh
+|2,0,1575747452,,"noh"
+:'<,'>s/in//g
+|2,0,1575747445,,"'<,'>s/in//g"
+:term
+|2,0,1575746310,,"term"
+:w
+|2,0,1575746160,,"w"
+:!clang %
+|2,0,1575743253,,"!clang %"
+:q
+|2,0,1575745971,,"q"
 :CocUninstall coc-snippets
 |2,0,1575742232,,"CocUninstall coc-snippets"
 :CocUninstall coc-neosnippet
@@ -44,8 +56,6 @@ $
 |2,0,1575741867,,"help vim-lsp-cxx-highlight"
 :e test.cpp
 |2,0,1575741831,,"e test.cpp"
-:term
-|2,0,1575741495,,"term"
 :b close
 |2,0,1575738889,,"b close"
 ::let mapleader
@@ -74,8 +84,6 @@ $
 |2,0,1575735273,,"h coc"
 :%s/tps/tp
 |2,0,1575726164,,"%s/tps/tp"
-:c
-|2,0,1575725012,,"c"
 :w urls
 |2,0,1575724990,,"w urls"
 :%s/music\//https:\/\/www.keygenmusic.net\/music\//g
@@ -88,8 +96,6 @@ $
 |2,0,1575724543,,"%s/<tr>.\\{-}href=\"//g"
 :g/<tr>.\{-}href="/d
 |2,0,1575724450,,"g/<tr>.\\{-}href=\"/d"
-:noh
-|2,0,1575724302,,"noh"
 :close
 |2,0,1575724285,,"close"
 :v/href
@@ -198,6 +204,12 @@ $
 |2,0,1575115169,,"e ~/temp/.ccls"
 
 # Search String History (newest to oldest):
+?/n
+|2,1,1575747465,47,"n"
+? in
+|2,1,1575747445,,"in"
+?/k
+|2,1,1575743123,47,"k"
 ?/highlight
 |2,1,1575741815,47,"highlight"
 ?/props
@@ -347,43 +359,37 @@ $
 
 # Registers:
 "0	LINE	0
-	#mkdir then cd
-	mkc() { mkdir -p -- "$1" && cd -P -- "$1"; }
-|3,0,0,1,2,0,1575741417,"#mkdir then cd","mkc() { mkdir -p -- \"$1\" && cd -P -- \"$1\"; }"
-"1	LINE	0
-	"
-|3,0,1,1,1,0,1575742265,"\""
+	Plug 'jackguo380/vim-lsp-cxx-highlight'
+|3,0,0,1,1,0,1575746142,"Plug 'jackguo380/vim-lsp-cxx-highlight'"
+""1	LINE	0
+	"clear highlight by :C in command mode
+	:command C let @/=""
+|3,1,1,1,2,0,1575747540,"\"clear highlight by :C in command mode",":command C let @/=\"\""
 "2	LINE	0
-	      \'coc-snippets',
-|3,0,2,1,1,0,1575742253,"      \\'coc-snippets',"
+	" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+	" `:help :Glaive` for usage.
+|3,0,2,1,2,0,1575746847,"\" Also add Glaive, which is used to configure codefmt's maktaba flags. See","\" `:help :Glaive` for usage."
 "3	LINE	0
-	mkc() { mkdir -p -- 
-|3,0,3,1,1,0,1575741460,"mkc() { mkdir -p -- "
+	Plug 'rhysd/vim-clang-format'
+|3,0,3,1,1,0,1575746815,"Plug 'rhysd/vim-clang-format'"
 "4	LINE	0
-	]
-|3,0,4,1,1,0,1575736658,"]"
+	  char ar[i];
+|3,0,4,1,1,0,1575743227,"  char ar[i];"
 "5	LINE	0
-	
-|3,0,5,1,1,0,1575736597,""
+	"
+|3,0,5,1,1,0,1575742265,"\""
 "6	LINE	0
-	
-	//coc extensions
-	let g:coc_global_extensions = [
-	  'coc-highlight',
-	]
-	'coc-diagnostic',
-	'coc-snippets',
-|3,0,6,1,7,0,1575736574,"","//coc extensions","let g:coc_global_extensions = [","  'coc-highlight',","]","'coc-diagnostic',","'coc-snippets',"
+	      \'coc-snippets',
+|3,0,6,1,1,0,1575742253,"      \\'coc-snippets',"
 "7	LINE	0
-	
-|3,0,7,1,1,0,1575736283,""
+	mkc() { mkdir -p -- 
+|3,0,7,1,1,0,1575741460,"mkc() { mkdir -p -- "
 "8	LINE	0
-	// jsonc comments
-	autocmd FileType json syntax match Comment +//.+$+
-|3,0,8,1,2,0,1575736214,"// jsonc comments","autocmd FileType json syntax match Comment +//.+$+"
+	]
+|3,0,8,1,1,0,1575736658,"]"
 "9	LINE	0
-	autocmd FileType json syntax match Comment +//.+$+
-|3,0,9,1,1,0,1575736194,"autocmd FileType json syntax match Comment +//.+$+"
+	
+|3,0,9,1,1,0,1575736597,""
 "b	CHAR	0
 	"""
 	""""cocoptions
@@ -407,39 +413,141 @@ $
 "z	CHAR	0
 	€ü[
 |3,0,35,0,1,0,1574175096,"€ü["
-""-	CHAR	0
-	 
-|3,1,36,0,1,0,1575742688," "
+"-	CHAR	0
+	jackguo380/vim-lsp-cxx-highlight
+|3,0,36,0,1,0,1575746147,"jackguo380/vim-lsp-cxx-highlight"
 
 # global variables:
 
 # File marks:
-'0  142  179  ~/.bashrc
-|4,48,142,179,1575742917,"~/.bashrc"
-'1  159  0  ~/.vim/vimrc
-|4,49,159,0,1575742304,"~/.vim/vimrc"
-'2  5  0  ~/test.cpp
-|4,50,5,0,1575741903,"~/test.cpp"
-'3  5  0  ~/test.cpp
-|4,51,5,0,1575741903,"~/test.cpp"
-'4  142  10  ~/.bashrc
-|4,52,142,10,1575741687,"~/.bashrc"
-'5  142  10  ~/.bashrc
-|4,53,142,10,1575741687,"~/.bashrc"
-'6  142  10  ~/.bashrc
-|4,54,142,10,1575741687,"~/.bashrc"
-'7  294  56  ~/.vim/vimrc
-|4,55,294,56,1575741028,"~/.vim/vimrc"
-'8  294  56  ~/.vim/vimrc
-|4,56,294,56,1575741028,"~/.vim/vimrc"
-'9  294  56  ~/.vim/vimrc
-|4,57,294,56,1575741028,"~/.vim/vimrc"
+'0  7  0  ~/.vim/vimrc
+|4,48,7,0,1575748330,"~/.vim/vimrc"
+'1  1  0  ~/.ccls
+|4,49,1,0,1575744596,"~/.ccls"
+'2  145  47  ~/.bashrc
+|4,50,145,47,1575743477,"~/.bashrc"
+'3  142  179  ~/.bashrc
+|4,51,142,179,1575742917,"~/.bashrc"
+'4  142  179  ~/.bashrc
+|4,52,142,179,1575742917,"~/.bashrc"
+'5  142  179  ~/.bashrc
+|4,53,142,179,1575742917,"~/.bashrc"
+'6  160  0  ~/.vim/vimrc
+|4,54,160,0,1575742304,"~/.vim/vimrc"
+'7  159  0  ~/.vim/vimrc
+|4,55,159,0,1575742304,"~/.vim/vimrc"
+'8  5  0  ~/test.cpp
+|4,56,5,0,1575741903,"~/test.cpp"
+'9  5  0  ~/test.cpp
+|4,57,5,0,1575741903,"~/test.cpp"
 
 # Jumplist (newest first):
+-'  7  0  ~/.vim/vimrc
+|4,39,7,0,1575748330,"~/.vim/vimrc"
+-'  63  24  ~/.vim/vimrc
+|4,39,63,24,1575747577,"~/.vim/vimrc"
+-'  8  0  ~/.vim/vimrc
+|4,39,8,0,1575747542,"~/.vim/vimrc"
+-'  87  8  ~/.vim/vimrc
+|4,39,87,8,1575747524,"~/.vim/vimrc"
+-'  64  0  ~/.vim/vimrc
+|4,39,64,0,1575747502,"~/.vim/vimrc"
+-'  65  0  ~/.vim/vimrc
+|4,39,65,0,1575747465,"~/.vim/vimrc"
+-'  42  25  ~/.vim/vimrc
+|4,39,42,25,1575746835,"~/.vim/vimrc"
+-'  41  0  ~/.vim/vimrc
+|4,39,41,0,1575746142,"~/.vim/vimrc"
+-'  4  2  ~/test.cpp
+|4,39,4,2,1575746129,"~/test.cpp"
+-'  1  0  ~/.ccls
+|4,39,1,0,1575744596,"~/.ccls"
+-'  1  0  ~/.ccls
+|4,39,1,0,1575744596,"~/.ccls"
+-'  145  47  ~/.bashrc
+|4,39,145,47,1575743477,"~/.bashrc"
+-'  145  47  ~/.bashrc
+|4,39,145,47,1575743477,"~/.bashrc"
+-'  145  47  ~/.bashrc
+|4,39,145,47,1575743477,"~/.bashrc"
+-'  145  47  ~/.bashrc
+|4,39,145,47,1575743477,"~/.bashrc"
+-'  143  0  ~/.bashrc
+|4,39,143,0,1575743447,"~/.bashrc"
+-'  143  0  ~/.bashrc
+|4,39,143,0,1575743447,"~/.bashrc"
+-'  143  0  ~/.bashrc
+|4,39,143,0,1575743447,"~/.bashrc"
+-'  143  0  ~/.bashrc
+|4,39,143,0,1575743447,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575743391,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575743391,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575743391,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575743391,"~/.bashrc"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575743051,"~/test.cpp"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
+-'  142  179  ~/.bashrc
+|4,39,142,179,1575742917,"~/.bashrc"
 -'  142  179  ~/.bashrc
 |4,39,142,179,1575742917,"~/.bashrc"
 -'  1  0  ~/.bashrc
 |4,39,1,0,1575742645,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575742645,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575742645,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575742645,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575742645,"~/.bashrc"
+-'  160  0  ~/.vim/vimrc
+|4,39,160,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
+-'  159  0  ~/.vim/vimrc
+|4,39,159,0,1575742304,"~/.vim/vimrc"
 -'  159  0  ~/.vim/vimrc
 |4,39,159,0,1575742304,"~/.vim/vimrc"
 -'  159  0  ~/.vim/vimrc
@@ -448,6 +556,64 @@ $
 |4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
 -'  61  18  /usr/include/c++/9/iostream
 |4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  61  18  /usr/include/c++/9/iostream
+|4,39,61,18,1575742235,"/usr/include/c++/9/iostream"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
+-'  4  10  ~/test.cpp
+|4,39,4,10,1575742109,"~/test.cpp"
 -'  4  10  ~/test.cpp
 |4,39,4,10,1575742109,"~/test.cpp"
 -'  4  10  ~/test.cpp
@@ -456,194 +622,79 @@ $
 |4,39,1,0,1575741907,"~/test.cpp"
 -'  1  0  ~/test.cpp
 |4,39,1,0,1575741907,"~/test.cpp"
--'  5  0  ~/test.cpp
-|4,39,5,0,1575741903,"~/test.cpp"
--'  5  0  ~/test.cpp
-|4,39,5,0,1575741903,"~/test.cpp"
--'  5  0  ~/test.cpp
-|4,39,5,0,1575741903,"~/test.cpp"
--'  5  0  ~/test.cpp
-|4,39,5,0,1575741903,"~/test.cpp"
--'  42  29  ~/.vim/vimrc
-|4,39,42,29,1575741831,"~/.vim/vimrc"
--'  42  29  ~/.vim/vimrc
-|4,39,42,29,1575741831,"~/.vim/vimrc"
--'  42  29  ~/.vim/vimrc
-|4,39,42,29,1575741831,"~/.vim/vimrc"
--'  42  29  ~/.vim/vimrc
-|4,39,42,29,1575741831,"~/.vim/vimrc"
--'  8  7  ~/.vim/vimrc
-|4,39,8,7,1575741819,"~/.vim/vimrc"
--'  8  7  ~/.vim/vimrc
-|4,39,8,7,1575741819,"~/.vim/vimrc"
--'  8  7  ~/.vim/vimrc
-|4,39,8,7,1575741819,"~/.vim/vimrc"
--'  8  7  ~/.vim/vimrc
-|4,39,8,7,1575741819,"~/.vim/vimrc"
--'  295  0  ~/.vim/vimrc
-|4,39,295,0,1575741818,"~/.vim/vimrc"
--'  294  1  ~/.vim/vimrc
-|4,39,294,1,1575741818,"~/.vim/vimrc"
--'  295  0  ~/.vim/vimrc
-|4,39,295,0,1575741818,"~/.vim/vimrc"
--'  294  1  ~/.vim/vimrc
-|4,39,294,1,1575741818,"~/.vim/vimrc"
--'  295  0  ~/.vim/vimrc
-|4,39,295,0,1575741818,"~/.vim/vimrc"
--'  294  1  ~/.vim/vimrc
-|4,39,294,1,1575741818,"~/.vim/vimrc"
--'  295  0  ~/.vim/vimrc
-|4,39,295,0,1575741818,"~/.vim/vimrc"
--'  294  1  ~/.vim/vimrc
-|4,39,294,1,1575741818,"~/.vim/vimrc"
--'  212  49  ~/.vim/vimrc
-|4,39,212,49,1575741817,"~/.vim/vimrc"
--'  211  2  ~/.vim/vimrc
-|4,39,211,2,1575741817,"~/.vim/vimrc"
--'  212  49  ~/.vim/vimrc
-|4,39,212,49,1575741817,"~/.vim/vimrc"
--'  211  2  ~/.vim/vimrc
-|4,39,211,2,1575741817,"~/.vim/vimrc"
--'  212  49  ~/.vim/vimrc
-|4,39,212,49,1575741817,"~/.vim/vimrc"
--'  211  2  ~/.vim/vimrc
-|4,39,211,2,1575741817,"~/.vim/vimrc"
--'  212  49  ~/.vim/vimrc
-|4,39,212,49,1575741817,"~/.vim/vimrc"
--'  211  2  ~/.vim/vimrc
-|4,39,211,2,1575741817,"~/.vim/vimrc"
--'  156  12  ~/.vim/vimrc
-|4,39,156,12,1575741816,"~/.vim/vimrc"
--'  156  12  ~/.vim/vimrc
-|4,39,156,12,1575741816,"~/.vim/vimrc"
--'  156  12  ~/.vim/vimrc
-|4,39,156,12,1575741816,"~/.vim/vimrc"
--'  156  12  ~/.vim/vimrc
-|4,39,156,12,1575741816,"~/.vim/vimrc"
--'  131  26  ~/.vim/vimrc
-|4,39,131,26,1575741815,"~/.vim/vimrc"
--'  131  26  ~/.vim/vimrc
-|4,39,131,26,1575741815,"~/.vim/vimrc"
--'  131  26  ~/.vim/vimrc
-|4,39,131,26,1575741815,"~/.vim/vimrc"
--'  131  26  ~/.vim/vimrc
-|4,39,131,26,1575741815,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575741803,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575741803,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575741803,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575741803,"~/.vim/vimrc"
--'  142  10  ~/.bashrc
-|4,39,142,10,1575741687,"~/.bashrc"
--'  142  10  ~/.bashrc
-|4,39,142,10,1575741687,"~/.bashrc"
--'  142  10  ~/.bashrc
-|4,39,142,10,1575741687,"~/.bashrc"
--'  141  0  ~/.bashrc
-|4,39,141,0,1575741426,"~/.bashrc"
--'  141  0  ~/.bashrc
-|4,39,141,0,1575741426,"~/.bashrc"
--'  141  0  ~/.bashrc
-|4,39,141,0,1575741426,"~/.bashrc"
--'  141  0  ~/.bashrc
-|4,39,141,0,1575741426,"~/.bashrc"
--'  138  0  ~/.bashrc
-|4,39,138,0,1575741418,"~/.bashrc"
--'  138  0  ~/.bashrc
-|4,39,138,0,1575741418,"~/.bashrc"
--'  138  0  ~/.bashrc
-|4,39,138,0,1575741418,"~/.bashrc"
--'  138  0  ~/.bashrc
-|4,39,138,0,1575741418,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1575741407,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1575741407,"~/.bashrc"
--'  1  0  ~/.bashrc
-|4,39,1,0,1575741407,"~/.bashrc"
--'  294  56  ~/.vim/vimrc
-|4,39,294,56,1575741028,"~/.vim/vimrc"
--'  294  56  ~/.vim/vimrc
-|4,39,294,56,1575741028,"~/.vim/vimrc"
--'  294  56  ~/.vim/vimrc
-|4,39,294,56,1575741028,"~/.vim/vimrc"
--'  294  56  ~/.vim/vimrc
-|4,39,294,56,1575741028,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575740918,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575740918,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575740918,"~/.vim/vimrc"
--'  1  0  ~/.vim/vimrc
-|4,39,1,0,1575740918,"~/.vim/vimrc"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
--'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
+-'  1  0  ~/test.cpp
+|4,39,1,0,1575741907,"~/test.cpp"
 
 # History of marks within files (newest to oldest):
 
+> ~/.vim/vimrc
+	*	1575748326	0
+	"	7	0
+	^	291	30
+	.	291	29
+	+	6	16
+	+	7	16
+	+	5	30
+	+	296	56
+	+	159	0
+	+	160	0
+	+	41	0
+	+	42	0
+	+	65	0
+	+	64	0
+	+	63	0
+	+	8	0
+	+	291	29
+
+> ~/test.cpp
+	*	1575746125	0
+	"	4	2
+	^	4	15
+	.	4	0
+	+	1	14
+	+	1	17
+	+	1	12
+	+	1	11
+	+	1	19
+	+	3	18
+	+	4	13
+	+	4	0
+	+	5	1
+	+	6	12
+	+	7	10
+	+	8	11
+	+	9	0
+	+	2	1
+	+	7	8
+	+	4	0
+
+> ~/.ccls
+	*	1575744065	0
+	"	1	0
+
 > ~/.bashrc
-	*	1575742915	0
-	"	142	179
-	^	142	121
-	.	142	120
+	*	1575743473	0
+	"	145	47
+	^	145	48
+	.	145	47
 	+	8	1
 	+	6	0
 	+	7	0
@@ -697,40 +748,14 @@ $
 	+	142	118
 	+	142	11
 	+	142	120
-
-> ~/.vim/vimrc
-	*	1575742280	0
-	"	159	0
-	.	159	0
-	+	6	16
-	+	7	16
-	+	5	30
-	+	294	56
-	+	158	0
-	+	159	0
+	+	143	0
+	+	143	11
+	+	143	0
+	+	145	47
 
 > /usr/include/c++/9/iostream
 	*	1575742232	0
 	"	61	18
-
-> ~/test.cpp
-	*	1575742108	0
-	"	4	10
-	^	9	1
-	.	9	0
-	+	1	14
-	+	1	17
-	+	1	12
-	+	1	11
-	+	1	19
-	+	2	18
-	+	3	13
-	+	4	0
-	+	5	1
-	+	6	12
-	+	7	10
-	+	8	11
-	+	9	0
 
 > ~/.yadm/repo.git/COMMIT_EDITMSG
 	*	1575740329	0
@@ -1374,7 +1399,3 @@ $
 > /usr/share/vim/vim80/doc/eval.txt
 	*	1574144481	0
 	"	6630	25
-
-> /usr/share/vim/vim80/doc/autocmd.txt
-	*	1574143962	0
-	"	558	7

@@ -5,8 +5,6 @@ let mapleader=","
 "use .vim/viminfo
 set viminfo+=n~/.vim/viminfo
 """ Mappings
-"clear highlight by :C in command mode
-:command C let @/=""
 "edit vimrc
 nnoremap <leader>e :e $MYVIMRC<CR>
 "strip trailing whitespace
@@ -62,6 +60,9 @@ Plug 'zefei/vim-colortuner'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'junegunn/fzf'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 "Plug 'edkolev/tmuxline.vim'
 "runtime! plugin/sensible.vim
 call plug#end()
@@ -287,6 +288,7 @@ let g:airline_section_b = '%{strftime("%H:%M")}'
 " must take mode into account
 " end settings below
 " use f then a character to jump to that character
+" use :noh to remove highlight
 "allow folding with "s
 set modelineexpr
 "> vim:fdm=expr:fdl=0
