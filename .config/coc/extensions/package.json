@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "coc-marketplace": ">=1.5.0",
+    "coc-diagnostic": ">=0.1.0",
+    "coc-project": ">=0.0.8",
+    "coc-highlight": ">=1.2.5",
+    "coc-snippets": ">=2.1.13"
+  }
+}

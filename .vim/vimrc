@@ -1,0 +1,295 @@
+""" init
+set nocompatible              " be iMproved, required
+"set leader to , (put before all maps)
+let mapleader=","
+"use .vim/viminfo
+set viminfo+=n~/.vim/viminfo
+""" Mappings
+"clear highlight by :C in command mode
+:command C let @/=""
+"edit vimrc
+nnoremap <leader>e :e $MYVIMRC<CR>
+"strip trailing whitespace
+fun! TrimWhitespace()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
+:noremap <Leader>w :call TrimWhitespace()<CR>
+"save as sudo
+cmap w!! w !sudo tee > /dev/null %
+" split nav
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" write and close current buffer
+nnoremap zq :w\|bd<cr>
+" cancel and close current buffer
+nnoremap cq :bw!<cr>
+"diff the changes in current file
+nnoremap dif :w !diff % -<cr>
+" switch buffers by name/number
+nnoremap <leader>b :ls<CR>:b<space>
+" quit help
+autocmd FileType help noremap <buffer> q :helpclose<cr>
+""" Plugins
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'scrooloose/nerdtree'
+"Plug 'mhinz/vim-startify'
+Plug 'scrooloose/syntastic', { 'on': [] }
+Plug 'scrooloose/nerdcommenter'
+Plug 'liuchengxu/vista.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'yggdroot/indentline'
+Plug 'vim-airline/vim-airline'
+Plug 'kana/vim-arpeggio'
+Plug 'justinmk/vim-sneak'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'ryanoasis/vim-devicons'
+Plug 'markonm/traces.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'mbbill/undotree'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-signify'
+Plug 'zefei/vim-colortuner'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'junegunn/fzf'
+"Plug 'edkolev/tmuxline.vim'
+"runtime! plugin/sensible.vim
+call plug#end()
+""" Options
+"save gobal options of COC
+set sessionoptions+=globals
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+" show tab and trailing space as char
+set list listchars=tab:!·,trail:·
+"Don't wrap lines
+set nowrap
+"Wrap lines at convenient points
+set linebreak
+"no sound
+set visualbell
+" Keep undo history across sessions, by storing in file.
+if has('persistent_undo') && isdirectory(expand('~').'/.vim/backups')
+  silent !mkdir ~/.vim/backups > /dev/null 2>&1
+  set undodir=~/.vim/backups
+  set undofile
+endif
+" tab char width
+set tabstop=2
+"Start scrolling when we're 8 lines away from margins
+set scrolloff=8
+set sidescrolloff=15
+set sidescroll=1
+" search
+set incsearch       " Find the next match as we type the search
+set hlsearch        " Highlight searches by default
+set ignorecase      " Ignore case when searching...
+set smartcase       " ...unless we type a capital
+"autoindent
+set autoindent
+set smartindent
+"indent correspond to single tab
+set shiftwidth=2
+" insert spaces instead of tab char in insert mode
+set expandtab
+" delete shiftwidth space if in front of line
+set smarttab
+" use spaces for tabs in insert instead of simulating tabstops
+set softtabstop=0
+" colors
+set termguicolors
+colo solarized8
+set background=dark
+"tmux color
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" show current command seq
+set showcmd
+" enable syntax
+syntax enable
+"Show line number
+set number
+" search down in sub-folders
+set path+=**
+" display matching files on tab while searching
+set wildmenu
+set foldmethod=indent
+""" Plugin options
+""""Vim-lsp-highlight
+"let text move with highlight
+let g:lsp_cxx_hl_use_text_props = 1
+""""FZF
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+""""arpeggio
+call arpeggio#load()
+Arpeggionoremap fj <esc>
+Arpeggionoremap! fj <esc>
+Arpeggiocnoremap fj <esc>
+Arpeggioinoremap fj <esc>
+Arpeggiolnoremap fj <esc>
+Arpeggionnoremap fj <esc>
+Arpeggioonoremap fj <esc>
+Arpeggiosnoremap fj <esc>
+Arpeggiovnoremap fj <esc>
+Arpeggioxnoremap fj <esc>
+""""airline
+let g:airline_powerline_fonts = 1
+""""NERDTree
+let NERDTreeDirArrows = 1
+let NERDTreeMinimalUI = 1
+""""coc
+" coc extensions
+let g:coc_global_extensions = [
+      \'coc-highlight',
+      \'coc-diagnostic',
+      \'coc-snippets',
+      \]
+" jsonc comments
+autocmd FileType json syntax match Comment +\/\/.\+$+
+" if hidden is not set, TextEdit might fail.
+set hidden
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+" Better display for messages
+"set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" bold the line number
+set cursorline
+hi clear CursorLine
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-x> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+"nmap <silent> <C-d> <Plug>(coc-range-select)
+"xmap <silent> <C-d> <Plug>(coc-range-select)
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+""""editorconfig
+" editorconfig dealing with fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.\*', 'scp://.\*']
+""""airline
+" don't show fileformat utf-8
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+" show time in airline
+let g:airline_section_b = '%{strftime("%H:%M")}'
+""" Tips
+" Use :find *blah to find wildcard way. You can also specify
+" the folder to limit into else use FZF
+" TAG JUMPING
+" uses ctags
+"command! MakeTags !ctags -R .
+" Enter MakeTags to make tag file in current folder
+" use ctrl-] to jump to definition. Append with g to list all
+" with that definition
+" ctrl-t to jump up the tag stack
+" use ctrl-n or ctrl-p for autocomplete
+" type partial path and ctrl-x ctrl-f for autocomplete for path
+" use ^x ^] for tag onlu auto completion
+" nnoremap <special_string> :-1read $HOME/PATH <CR>
+" must take mode into account
+" end settings below
+" use f then a character to jump to that character
+"allow folding with "s
+set modelineexpr
+"> vim:fdm=expr:fdl=0
+"> vim:fde=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
+"highlight current cursor line gray(put after colo)
+highlight CursorLineNr term=bold cterm=NONE ctermfg=darkgray ctermbg=NONE gui=NONE guifg=darkgray guibg=NONE

@@ -1,0 +1,59 @@
+{
+  "diagnostics": {
+    "%2Fhome%2Fu": [
+      "  silent !mkdir ~/.vim/backups > /dev/null 2>&1  set undodir=~/.vim/backups  set wv"
+    ]
+  },
+  "folders": {
+    "mlpack%2Fsrc%2F": [
+      "mlfj?",
+      "ml"
+    ],
+    "%2Fhome%2Fu%2Fmlpack%2Fsrc%2Fmlpack%2Fmethods%2Frann": [
+      ":editjf",
+      "ml"
+    ],
+    "%2Fhome%2Fu%2Fmlpack": [
+      "/home/u/mlpack/",
+      "/home/u/m/",
+      "/home/u/mlpack/src",
+      "ki",
+      "ml",
+      ":bro ol",
+      "/home/u/mlpack/f",
+      "/m:",
+      "rk:jjj",
+      "/home/u/mlpackh"
+    ],
+    "%2Fhome%2Fu%2F": {
+      "vim%2Fplugged%2Fcoc": {
+        "nvim": [
+          "ddddddkso  ",
+          "p:jf"
+        ]
+      }
+    },
+    "%2Fhome%2Fu%2Fmlpack%2Fsrc": [
+      "ml"
+    ]
+  },
+  "lists": {
+    "%2Fhome%2Fu": [
+      "extensions manage"
+    ],
+    "%2Fhome%2Fu%2Fmlpack": [
+      "location",
+      "fold'`"
+    ]
+  },
+  "project": {
+    "%2Fhome%2Fu%2Fmlpack": [
+      ":edit "
+    ]
+  },
+  "location": {
+    "%2Fhome%2Fu%2Fmlpack": [
+      "rk:jjjjjjjjjkkk"
+    ]
+  }
+}
