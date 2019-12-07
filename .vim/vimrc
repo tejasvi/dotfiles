@@ -155,8 +155,8 @@ let NERDTreeMinimalUI = 1
 let g:coc_global_extensions = [
       \'coc-highlight',
       \'coc-diagnostic',
-      \'coc-snippets',
       \]
+"     \'coc-snippets',
 " jsonc comments
 autocmd FileType json syntax match Comment +\/\/.\+$+
 " if hidden is not set, TextEdit might fail.
