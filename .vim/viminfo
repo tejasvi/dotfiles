@@ -21,15 +21,15 @@ $
 
 # Command Line History (newest to oldest):
 :q
-|2,0,1575741028,,"q"
+|2,0,1575741687,,"q"
 :w
-|2,0,1575740980,,"w"
+|2,0,1575741683,,"w"
+:term
+|2,0,1575741495,,"term"
 :messages
 |2,0,1575740969,,"messages"
 :wq
 |2,0,1575740337,,"wq"
-:term
-|2,0,1575739838,,"term"
 :b close
 |2,0,1575738889,,"b close"
 ::let mapleader
@@ -329,15 +329,19 @@ $
 
 # Registers:
 "0	LINE	0
-	      'highlight': { 'lsRanges' : '1'}
-|3,0,0,1,1,0,1575735951,"      'highlight': { 'lsRanges' : '1'}"
-"1	LINE	0
-	]
-|3,0,1,1,1,0,1575736658,"]"
+	#mkdir then cd
+	mkc() { mkdir -p -- "$1" && cd -P -- "$1"; }
+|3,0,0,1,2,0,1575741417,"#mkdir then cd","mkc() { mkdir -p -- \"$1\" && cd -P -- \"$1\"; }"
+""1	LINE	0
+	mkc() { mkdir -p -- 
+|3,1,1,1,1,0,1575741460,"mkc() { mkdir -p -- "
 "2	LINE	0
-	
-|3,0,2,1,1,0,1575736597,""
+	]
+|3,0,2,1,1,0,1575736658,"]"
 "3	LINE	0
+	
+|3,0,3,1,1,0,1575736597,""
+"4	LINE	0
 	
 	//coc extensions
 	let g:coc_global_extensions = [
@@ -345,18 +349,18 @@ $
 	]
 	'coc-diagnostic',
 	'coc-snippets',
-|3,0,3,1,7,0,1575736574,"","//coc extensions","let g:coc_global_extensions = [","  'coc-highlight',","]","'coc-diagnostic',","'coc-snippets',"
-"4	LINE	0
-	
-|3,0,4,1,1,0,1575736283,""
+|3,0,4,1,7,0,1575736574,"","//coc extensions","let g:coc_global_extensions = [","  'coc-highlight',","]","'coc-diagnostic',","'coc-snippets',"
 "5	LINE	0
+	
+|3,0,5,1,1,0,1575736283,""
+"6	LINE	0
 	// jsonc comments
 	autocmd FileType json syntax match Comment +//.+$+
-|3,0,5,1,2,0,1575736214,"// jsonc comments","autocmd FileType json syntax match Comment +//.+$+"
-"6	LINE	0
-	autocmd FileType json syntax match Comment +//.+$+
-|3,0,6,1,1,0,1575736194,"autocmd FileType json syntax match Comment +//.+$+"
+|3,0,6,1,2,0,1575736214,"// jsonc comments","autocmd FileType json syntax match Comment +//.+$+"
 "7	LINE	0
+	autocmd FileType json syntax match Comment +//.+$+
+|3,0,7,1,1,0,1575736194,"autocmd FileType json syntax match Comment +//.+$+"
+"8	LINE	0
 	
 	language server
 	call coc#config('languageserver', {
@@ -373,13 +377,10 @@ $
 	  }
 	})
 	
-|3,0,7,1,16,0,1575736124,"","language server","call coc#config('languageserver', {","  'ccls': {","    'command': 'ccls',","    'filetypes': ['c', 'cpp', 'cuda', 'objc', 'objcpp'],","    'rootPatterns': ['.ccls-root', 'compile_commands.json'],","    'initializationOptions': {","      'cache': {","        'directory': '.ccls-cache',","      },","      'highlight': { 'lsRanges' : '1'}","    }","  }","})",""
-"8	LINE	0
-	         highlight: { lsRanges : 1}
-|3,0,8,1,1,0,1575736069,"         highlight: { lsRanges : 1}"
+|3,0,8,1,16,0,1575736124,"","language server","call coc#config('languageserver', {","  'ccls': {","    'command': 'ccls',","    'filetypes': ['c', 'cpp', 'cuda', 'objc', 'objcpp'],","    'rootPatterns': ['.ccls-root', 'compile_commands.json'],","    'initializationOptions': {","      'cache': {","        'directory': '.ccls-cache',","      },","      'highlight': { 'lsRanges' : '1'}","    }","  }","})",""
 "9	LINE	0
-	            highlight: { lsRanges' : '1'}
-|3,0,9,1,1,0,1575736011,"            highlight: { lsRanges' : '1'}"
+	         highlight: { lsRanges : 1}
+|3,0,9,1,1,0,1575736069,"         highlight: { lsRanges : 1}"
 "b	CHAR	0
 	"""
 	""""cocoptions
@@ -403,47 +404,65 @@ $
 "z	CHAR	0
 	€ü[
 |3,0,35,0,1,0,1574175096,"€ü["
-""-	CHAR	0
-	~/.vimrc
-|3,1,36,0,1,0,1575738684,"~/.vimrc"
+"-	CHAR	0
+	"$1" && cd -P -- "$1"; }
+|3,0,36,0,1,0,1575741457,"\"$1\" && cd -P -- \"$1\"; }"
 
 # global variables:
 
 # File marks:
-'0  294  56  ~/.vim/vimrc
-|4,48,294,56,1575741028,"~/.vim/vimrc"
-'1  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
-|4,49,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
-'2  1  2  ~/.vim/vimrc
-|4,50,1,2,1575739894,"~/.vim/vimrc"
-'3  1  2  ~/.vim/vimrc
-|4,51,1,2,1575739894,"~/.vim/vimrc"
-'4  1  0  ~/.vim/vimrc
-|4,52,1,0,1575738902,"~/.vim/vimrc"
-'5  1  0  ~/.vim/vimrc
-|4,53,1,0,1575738902,"~/.vim/vimrc"
-'6  5  29  ~/.vim/vimrc
-|4,54,5,29,1575738710,"~/.vim/vimrc"
-'7  5  29  ~/.vim/vimrc
-|4,55,5,29,1575738710,"~/.vim/vimrc"
-'8  5  29  ~/.vim/vimrc
-|4,56,5,29,1575738710,"~/.vim/vimrc"
-'9  5  29  ~/.vim/vimrc
-|4,57,5,29,1575738710,"~/.vim/vimrc"
+'0  142  10  ~/.bashrc
+|4,48,142,10,1575741687,"~/.bashrc"
+'1  294  56  ~/.vim/vimrc
+|4,49,294,56,1575741028,"~/.vim/vimrc"
+'2  294  56  ~/.vim/vimrc
+|4,50,294,56,1575741028,"~/.vim/vimrc"
+'3  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
+|4,51,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
+'4  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
+|4,52,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
+'5  1  2  ~/.vim/vimrc
+|4,53,1,2,1575739894,"~/.vim/vimrc"
+'6  1  2  ~/.vim/vimrc
+|4,54,1,2,1575739894,"~/.vim/vimrc"
+'7  1  2  ~/.vim/vimrc
+|4,55,1,2,1575739894,"~/.vim/vimrc"
+'8  1  2  ~/.vim/vimrc
+|4,56,1,2,1575739894,"~/.vim/vimrc"
+'9  1  0  ~/.vim/vimrc
+|4,57,1,0,1575738902,"~/.vim/vimrc"
 
 # Jumplist (newest first):
+-'  142  10  ~/.bashrc
+|4,39,142,10,1575741687,"~/.bashrc"
+-'  141  0  ~/.bashrc
+|4,39,141,0,1575741426,"~/.bashrc"
+-'  138  0  ~/.bashrc
+|4,39,138,0,1575741418,"~/.bashrc"
+-'  1  0  ~/.bashrc
+|4,39,1,0,1575741407,"~/.bashrc"
 -'  294  56  ~/.vim/vimrc
 |4,39,294,56,1575741028,"~/.vim/vimrc"
+-'  294  56  ~/.vim/vimrc
+|4,39,294,56,1575741028,"~/.vim/vimrc"
+-'  1  0  ~/.vim/vimrc
+|4,39,1,0,1575740918,"~/.vim/vimrc"
 -'  1  0  ~/.vim/vimrc
 |4,39,1,0,1575740918,"~/.vim/vimrc"
 -'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
 |4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
 -'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
 |4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
+-'  1  26  ~/.yadm/repo.git/COMMIT_EDITMSG
+|4,39,1,26,1575740337,"~/.yadm/repo.git/COMMIT_EDITMSG"
 -'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
 |4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
 -'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
 |4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
+-'  91  0  ~/.yadm/repo.git/COMMIT_EDITMSG
+|4,39,91,0,1575740280,"~/.yadm/repo.git/COMMIT_EDITMSG"
+-'  25  1  ~/.yadm/repo.git/COMMIT_EDITMSG
+|4,39,25,1,1575740261,"~/.yadm/repo.git/COMMIT_EDITMSG"
 -'  25  1  ~/.yadm/repo.git/COMMIT_EDITMSG
 |4,39,25,1,1575740261,"~/.yadm/repo.git/COMMIT_EDITMSG"
 -'  25  1  ~/.yadm/repo.git/COMMIT_EDITMSG
@@ -456,6 +475,8 @@ $
 |4,39,1,0,1575738902,"~/.vim/vimrc"
 -'  1  0  ~/.vim/vimrc
 |4,39,1,0,1575738902,"~/.vim/vimrc"
+-'  5  17  ~/.vim/vimrc
+|4,39,5,17,1575738893,"~/.vim/vimrc"
 -'  5  17  ~/.vim/vimrc
 |4,39,5,17,1575738893,"~/.vim/vimrc"
 -'  5  17  ~/.vim/vimrc
@@ -538,6 +559,8 @@ $
 |4,39,64,27,1575738445,"~/.vimrc"
 -'  64  27  ~/.vimrc
 |4,39,64,27,1575738445,"~/.vimrc"
+-'  64  27  ~/.vimrc
+|4,39,64,27,1575738445,"~/.vimrc"
 -'  1  0  ~/.vimrc
 |4,39,1,0,1575738415,"~/.vimrc"
 -'  1  0  ~/.vimrc
@@ -602,30 +625,8 @@ $
 |4,39,1,0,1575738415,"~/.vimrc"
 -'  1  0  ~/.vimrc
 |4,39,1,0,1575738415,"~/.vimrc"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
--'  1  0  ~/.viminfo
-|4,39,1,0,1575737795,"~/.viminfo"
+-'  1  0  ~/.vimrc
+|4,39,1,0,1575738415,"~/.vimrc"
 -'  1  0  ~/.viminfo
 |4,39,1,0,1575737795,"~/.viminfo"
 -'  1  0  ~/.viminfo
@@ -634,6 +635,63 @@ $
 |4,39,1,0,1575737795,"~/.viminfo"
 
 # History of marks within files (newest to oldest):
+
+> ~/.bashrc
+	*	1575741685	0
+	"	142	10
+	^	142	11
+	.	142	10
+	+	8	1
+	+	6	0
+	+	7	0
+	+	8	0
+	+	131	85
+	+	6	0
+	+	7	0
+	+	8	0
+	+	131	0
+	+	8	0
+	+	7	1
+	+	6	0
+	+	58	0
+	+	100	0
+	+	7	1
+	+	6	0
+	+	8	0
+	+	6	0
+	+	7	0
+	+	8	0
+	+	6	0
+	+	7	0
+	+	8	0
+	+	15	0
+	+	10	0
+	+	9	0
+	+	10	29
+	+	10	0
+	+	131	0
+	+	132	0
+	+	135	10
+	+	135	11
+	+	136	1
+	+	137	0
+	+	137	14
+	+	137	41
+	+	137	0
+	+	139	9
+	+	139	44
+	+	139	29
+	+	139	43
+	+	139	10
+	+	140	0
+	+	139	9
+	+	139	40
+	+	137	0
+	+	139	2
+	+	136	1
+	+	140	0
+	+	141	20
+	+	142	10
 
 > ~/.vim/vimrc
 	*	1575740980	0
@@ -1029,60 +1087,6 @@ $
 > /usr/lib/gcc/x86_64-linux
 	*	1574871007	0
 	"	1	0
-
-> ~/.bashrc
-	*	1574868085	0
-	"	136	1
-	^	139	3
-	.	136	1
-	+	8	1
-	+	6	0
-	+	7	0
-	+	8	0
-	+	131	85
-	+	6	0
-	+	7	0
-	+	8	0
-	+	131	0
-	+	8	0
-	+	7	1
-	+	6	0
-	+	58	0
-	+	100	0
-	+	7	1
-	+	6	0
-	+	8	0
-	+	6	0
-	+	7	0
-	+	8	0
-	+	6	0
-	+	7	0
-	+	8	0
-	+	15	0
-	+	10	0
-	+	9	0
-	+	10	29
-	+	10	0
-	+	131	0
-	+	132	0
-	+	135	10
-	+	135	11
-	+	136	1
-	+	137	0
-	+	137	14
-	+	137	41
-	+	137	0
-	+	139	9
-	+	139	44
-	+	139	29
-	+	139	43
-	+	139	10
-	+	140	0
-	+	139	9
-	+	139	40
-	+	137	0
-	+	139	2
-	+	136	1
 
 > /usr/share/vim/vim81/doc/if_ruby.txt
 	*	1574865335	0

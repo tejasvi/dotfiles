@@ -137,3 +137,6 @@ cl() { builtin cd "$@" && ls; }
 
 #mkdir then cd
 mkc() { mkdir -p -- "$1" && cd -P -- "$1"; }
+
+#yadm commit and push
+alias ydm='yadm commit -am "Use yadm to manage dotfiles" && yadm push'
